@@ -1,0 +1,67 @@
+<html>
+<head>
+<title> GPA Calculator</title>
+<style>
+body{
+background-image: linear-gradient(purple,blue);
+height:100%;
+background-repeat:no-repeat;
+}
+table{
+margin:auto;
+margin-top: 25vh;
+background:white;
+padding: 30px;
+border-radius: 25px;
+}
+td{
+line-height:30px;
+}
+input{
+padding: 5px 60px;
+}
+button{
+color: white;
+border: none;
+border-radius: 25px;
+padding: 10px 60px;
+background-image: linear-gradient(purple,blue);
+}
+button:hover{
+transform:scale(1.06);
+}
+</style>
+<script>
+function calculate_gpa(){
+let G1 = document.getElementById("gp1").value;
+let G2 = document.getElementById("gp2").value;
+let OG = document.getElementById("cgpa").value;
+if (G1=="" || G2=="" || OG==""){
+document.getElementById("error").innerHTML="<center><b><font color=red> All Fields Are Required!!!!</font></b></center>"
+}else if(G1>4 || G2>4 || OG>4){
+document.getElementById("error").innerHTML="<center><b><font color=red> Please Enter Valid GPA!!!!</font></b></center>"
+}else{
+let A = ((OG*47)-((G1*14)+(G2*16)))/17;
+document.getElementById("GPA").innerHTML="Your GPA is : <br><br>" + A;
+document.getElementById("error").innerHTML="By: Muhammad Muneeb 529";
+}
+}
+</script>
+</head>
+<body>
+<table>
+<tr>
+<td>
+<center><h1 id="GPA">NAN</h1><br></center>
+GPA of First Semester: <br>
+<input type="text" id="gp1"><br>
+GPA of Second Semester:<br>
+<input type="text" id="gp2"><br>
+Overall Current CGPA:<br>
+<input type="text" id="cgpa"><br><p id="error">By: Muhammad Muneeb 529<p><br>
+<center><button onclick="calculate_gpa();">Calculate</button><center>
+</td>
+</tr>
+</table>
+</body>
+</html>
